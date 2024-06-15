@@ -9,6 +9,7 @@ import Dragwrapper from './Dragwrapper';
 import {MouseSensor, TouchSensor, useSensor} from '@dnd-kit/core';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import { toast } from 'sonner';
 
 
  
@@ -29,6 +30,19 @@ export default function FormBuilder({ form }: { form: Form }) {
     },
   });
  
+
+  const handleCopy = () => {
+    const url = `forms/${form.id}`;
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        toast.success('Copied to clipboard!');
+      })
+      .catch((error) => {
+        toast.error('Failed to copy');
+        console.error('Failed to copy: ', error);
+      });
+  };
+
   return (
 
     
@@ -37,8 +51,8 @@ export default function FormBuilder({ form }: { form: Form }) {
       form.published?(<div>
         <div className='text-center'> Form has already published</div>
          <div className="flex w-full max-w-sm items-center space-x-2 text-center mx-auto  justify-center">
-      <Input type="text" placeholder={`http://localhost:3000/publish/${form.id}`}  disabled/>
-      <Button type="submit" >Coppy</Button>
+      <Input type="text" placeholder={`forms/${form.id}`}  disabled/>
+      <Button type="submit" onClick={handleCopy} >Coppy</Button>
     </div>
       </div>):( <DndContext sensors={[mouseSensor,touchSensor]} >
         <main className="flex flex-col max-w-screen min-h-screen">

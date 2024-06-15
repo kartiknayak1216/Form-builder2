@@ -15,6 +15,7 @@ import { FaWpforms, FaEdit } from 'react-icons/fa'
 import { BiRightArrowAlt } from 'react-icons/bi'
 import Link from 'next/link'
 import { formatDistance } from 'date-fns'
+import { toast } from 'sonner'
 
 type Props = {
   id:string
@@ -27,7 +28,10 @@ type Props = {
 }
 const url = process.env.url
 
+
+
 export default function FormCard({ id,createdAt, title, description, visits, submissions, published }: Props) {
+ 
   return (
     <Card className="shadow-lg transition-transform transform hover:scale-105 bg-card text-card-foreground border border-border rounded-md">
       <CardHeader className="flex justify-between items-center p-4 text-secondary-foreground rounded-t-md">
@@ -55,7 +59,7 @@ export default function FormCard({ id,createdAt, title, description, visits, sub
       </CardContent>
       <CardFooter className="p-4 mt-4 text-secondary-foreground rounded-b-md items-center" >
         {published ? (
-          <Link href={`/${url}/${id}`}>
+          <Link href={`forms/${id}`}>
             <Button variant={'secondary'} asChild className="w-full mt-2 text-md flex items-center justify-center gap-4">
               <div className="flex items-center justify-center gap-2">
                 <div>View Published Form</div>
@@ -64,7 +68,7 @@ export default function FormCard({ id,createdAt, title, description, visits, sub
             </Button>
           </Link>
         ) : (
-          <Link href={`//${id}`}>
+          <Link href={`/build/${id}`}>
             <Button asChild variant="secondary" className="w-full mt-4 text-md flex items-center justify-center gap-4">
               <div className="flex flex-row gap-4 justify-between w-full">
                 <div className="text-center flex-1">Edit form</div>

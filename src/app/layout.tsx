@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/provider/theme";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { Toaster } from "sonner";
+import NextTopLoader from 'nextjs-toploader';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +30,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+<NextTopLoader/>
         {children}
         <Toaster richColors  />
         </ThemeProvider></body>
