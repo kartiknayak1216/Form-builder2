@@ -28,20 +28,21 @@ export function SpacerProperty() {
   const { updateProperty, property, removeproperty } = Store();
   const [size, setSize] = useState(property?.properties.size || 20);
 
-  if (!property) {
-    return <div />;
-  }
 
   useEffect(() => {
+    if (property) {
+
     if (property?.properties.size !== size) {
       updateProperty(property?.id, 'size', size);
-    }
+    }}
   }, [size, property]);
 
   const onsubmit = () => {
+    if (property) {
+
     if (property?.properties.size !== size) {
       updateProperty(property?.id, 'size', size);
-    }
+    }}
   };
 
   return (
