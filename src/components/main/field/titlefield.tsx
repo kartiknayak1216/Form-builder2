@@ -29,7 +29,7 @@ export function TitleProperty(){
   const { updateProperty,store, addStore, removeStore,property,setproperty,removeproperty } = Store()
 
   if(!property){
-    return
+    return null
   }
 
 
