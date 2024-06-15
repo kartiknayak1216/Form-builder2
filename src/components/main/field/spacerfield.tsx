@@ -32,7 +32,7 @@ export function SpacerProperty() {
   const [size, setSize] = useState(property?.properties.size ||20);
 
   if (!property) {
-    return null;
+    return <div/>
   }
 
 

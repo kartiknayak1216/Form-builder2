@@ -35,7 +35,7 @@ export function ParagraphProperty(){
 const [title,settitle] = useState(property?.properties.text || "")
 
 if(!property){
-  return null
+  return <div/>
 }
 
 
