@@ -25,6 +25,7 @@ type Props = {
   submissions: number,
   published: boolean
 }
+const url = process.env.url
 
 export default function FormCard({ id,createdAt, title, description, visits, submissions, published }: Props) {
   return (
@@ -54,7 +55,7 @@ export default function FormCard({ id,createdAt, title, description, visits, sub
       </CardContent>
       <CardFooter className="p-4 mt-4 text-secondary-foreground rounded-b-md items-center" >
         {published ? (
-          <Link href={`/forms/${id}`}>
+          <Link href={`/${url}/${id}`}>
             <Button variant={'secondary'} asChild className="w-full mt-2 text-md flex items-center justify-center gap-4">
               <div className="flex items-center justify-center gap-2">
                 <div>View Published Form</div>
@@ -63,7 +64,7 @@ export default function FormCard({ id,createdAt, title, description, visits, sub
             </Button>
           </Link>
         ) : (
-          <Link href={`/build/${id}`}>
+          <Link href={`//${id}`}>
             <Button asChild variant="secondary" className="w-full mt-4 text-md flex items-center justify-center gap-4">
               <div className="flex flex-row gap-4 justify-between w-full">
                 <div className="text-center flex-1">Edit form</div>
