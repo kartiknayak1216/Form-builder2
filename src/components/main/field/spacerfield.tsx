@@ -26,46 +26,40 @@ export default function Spacerfield({ node }: { node: Node }) {
 
 export function SpacerProperty() {
   const { updateProperty, property, removeproperty } = Store();
-
-
-
-  const [size, setSize] = useState(property?.properties.size ||20);
+  const [size, setSize] = useState(property?.properties.size || 20);
 
   if (!property) {
-    return <div/>
+    return <div />;
   }
 
-
-
   useEffect(() => {
-    if (!property) {
-      return null
-    }
-
     if (property?.properties.size !== size) {
       updateProperty(property?.id, 'size', size);
     }
-  }, [size]);
+  }, [size, property]);
 
-  const onsubmit =()=>{
+  const onsubmit = () => {
     if (property?.properties.size !== size) {
-        updateProperty(property?.id, 'size', size);
-      }
-}
+      updateProperty(property?.id, 'size', size);
+    }
+  };
 
   return (
     <div className="w-full mt-11 flex flex-col gap-7 justify-center">
       <div className="flex flex-col gap-2">
-        <Label htmlFor="title" >{`Spacefield:${size}`}</Label>
+        <Label htmlFor="title">{`Spacefield:${size}`}</Label>
         <Slider
           defaultValue={[size]}
           max={100}
           step={1}
           className="w-[90%] mt-4"
-          onValueChange={(value) => {setSize(value[0]),onsubmit()}}
+          onValueChange={(value) => {
+            setSize(value[0]);
+            onsubmit();
+          }}
         />
       </div>
-      
     </div>
   );
 }
+

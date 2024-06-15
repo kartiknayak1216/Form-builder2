@@ -32,9 +32,7 @@ export function NumberProperty() {
   const [required, setRequired] = useState(property?.properties.required || false);
 
 
-  if (!property) {
-    return null;
-  }
+
 
 
   useEffect(() => {
