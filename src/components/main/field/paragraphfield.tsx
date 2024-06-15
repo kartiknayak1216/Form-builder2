@@ -29,13 +29,14 @@ export default function Paragraphfield({ node }: { node: Node }) {
 export function ParagraphProperty(){
   const { updateProperty,store, addStore, removeStore,property,setproperty,removeproperty } = Store()
 
-  if(!property){
-    return null
-  }
+ 
 
 
 const [title,settitle] = useState(property?.properties.text || "")
 
+if(!property){
+  return null
+}
 
 const onsubmit =()=>{
   if  (property?.properties.text !== title) {

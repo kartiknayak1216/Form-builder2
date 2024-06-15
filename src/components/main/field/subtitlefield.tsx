@@ -28,12 +28,13 @@ export default function SubTitlefield({ node }: { node: Node }) {
 export function SubTitleProperty(){
   const { updateProperty,store, addStore, removeStore,property,setproperty,removeproperty } = Store()
 
-  if(!property){
-    return null
-  }
 
 
 const [title,settitle] = useState(property?.properties.label || "")
+
+if(!property){
+  return null
+}
 
 
 const onsubmit =()=>{

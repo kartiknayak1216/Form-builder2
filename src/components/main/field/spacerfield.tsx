@@ -27,11 +27,13 @@ export default function Spacerfield({ node }: { node: Node }) {
 export function SpacerProperty() {
   const { updateProperty, property, removeproperty } = Store();
 
+
+
+  const [size, setSize] = useState(property?.properties.size ||20);
+
   if (!property) {
     return null;
   }
-
-  const [size, setSize] = useState(property?.properties.size ||20);
 
 const onsubmit =()=>{
     if (property?.properties.size !== size) {

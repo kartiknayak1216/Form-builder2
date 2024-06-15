@@ -33,18 +33,18 @@ export default function Textareafield({ node }: { node: Node }) {
 export function TextareaProperty(){
   const { updateProperty,store, addStore, removeStore,property,setproperty,removeproperty } = Store()
 
+ 
+
+
+  const [label, setlabel] = useState(property?.properties.label || 'Add label');
+  const [text, settext] = useState(property?.properties.text || 'TextArea field');
+  const [helpertext, sethelpertext] = useState(property?.properties.helpertext || 'Helper text');
+  const [required, setrequired] = useState(property?.properties.required||false)
+  const [size, setSize] = useState(property?.properties.size ||1);
+
   if(!property){
     return null
   }
-
-
-  const [label, setlabel] = useState(property.properties.label || 'Add label');
-  const [text, settext] = useState(property.properties.text || 'TextArea field');
-  const [helpertext, sethelpertext] = useState(property.properties.helpertext || 'Helper text');
-  const [required, setrequired] = useState(property.properties.required||false)
-  const [size, setSize] = useState(property?.properties.size ||1);
-
-
 
 
 const onsubmit =()=>{

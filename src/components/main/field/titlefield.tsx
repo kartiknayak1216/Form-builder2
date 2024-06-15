@@ -28,13 +28,15 @@ export default function Titlefield({ node }: { node: Node }) {
 export function TitleProperty(){
   const { updateProperty,store, addStore, removeStore,property,setproperty,removeproperty } = Store()
 
-  if(!property){
-    return null
-  }
+ 
 
 
 const [title,settitle] = useState(property?.properties.label || "")
 
+
+if(!property){
+  return null
+}
 
 const onsubmit =()=>{
   if  (property?.properties.label !== title) {

@@ -25,14 +25,17 @@ export default function Numberfield({ node }: { node: Node }) {
 export function NumberProperty() {
   const { updateProperty, store, addStore, removeStore, property, setproperty, removeproperty } = Store();
 
-  if (!property) {
-    return null;
-  }
 
   const [label, setLabel] = useState(property.properties.label || 'Add label');
   const [text, setText] = useState(property.properties.text || 'Text field');
   const [helpertext, setHelpertext] = useState(property.properties.helpertext || 'Helper text');
   const [required, setRequired] = useState(property.properties.required || false);
+
+
+  if (!property) {
+    return null;
+  }
+
 
   useEffect(() => {
     if (property) {

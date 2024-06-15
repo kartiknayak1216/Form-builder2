@@ -31,18 +31,18 @@ export default function Textfield({ node }: { node: Node }) {
 export function TextProperty(){
   const { updateProperty,store, addStore, removeStore,property,setproperty,removeproperty } = Store()
 
+  
+
+
+  const [label, setlabel] = useState(property?.properties.label || 'Add label');
+  const [text, settext] = useState(property?.properties.text || 'Text field');
+  const [helpertext, sethelpertext] = useState(property?.properties.helpertext || 'Helper text');
+  const [required, setrequired] = useState(property?.properties.required||false)
+
+
   if(!property){
     return null
   }
-
-
-  const [label, setlabel] = useState(property.properties.label || 'Add label');
-  const [text, settext] = useState(property.properties.text || 'Text field');
-  const [helpertext, sethelpertext] = useState(property.properties.helpertext || 'Helper text');
-  const [required, setrequired] = useState(property.properties.required||false)
-
-
-
 
 const onsubmit =()=>{
   if  (property?.properties.label !== label ||property?.properties.text !== text ||property?.properties.helpertext !== helpertext ||property?.properties.required !== required) {
