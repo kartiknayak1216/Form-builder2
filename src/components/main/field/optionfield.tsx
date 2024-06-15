@@ -1,4 +1,3 @@
-"use client"
 import React, { useState, useEffect } from 'react';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -11,7 +10,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function Selectfield({ node }: { node: Node }) {
   const { setproperty, updateProperty } = Store();
-  
+
   return (
     <div>
       <div className="grid md:w-full max-w-screen-sm md:min-w-[800px] items-center gap-1">
@@ -27,15 +26,16 @@ export default function Selectfield({ node }: { node: Node }) {
 export function SelectProperty() {
   const { updateProperty, property, removeproperty } = Store();
 
+  // Initialize hooks with default values
+  const [label, setLabel] = useState(property?.properties.label || 'Add label');
+  const [helpertext, setHelpertext] = useState(property?.properties.helpertext || 'Helper text');
+  const [required, setRequired] = useState(property?.properties.required || false);
+  const [options, setOptions] = useState<string[]>(property?.properties.options || []);
+  const [instance, setInstance] = useState(property?.properties.instance || "Single");
+
   if (!property) {
     return null;
   }
-
-  const [label, setLabel] = useState(property.properties.label || 'Add label');
-  const [helpertext, setHelpertext] = useState(property.properties.helpertext || 'Helper text');
-  const [required, setRequired] = useState(property.properties.required || false);
-  const [options, setOptions] = useState<string[]>(property.properties.options || []);
-  const [instance, setInstance] = useState(property.properties.instance || "Single");
 
   const onsubmit = () => {
     if (
@@ -89,16 +89,17 @@ export function SelectProperty() {
             + Add Option
           </Button>
         </div>
-       {options.length> 0 &&
+       {options.length > 0 &&
        <div>
-       { options.map((item, index) =>
-         <div className='flex flex-row items-center' key={index}>
-           <Input className='border-r-0' value={item} onChange={(e) => updateOption(index, e.target.value)} />
-           <Button onClick={() => removeOption(index)} className='border-none'>
-             <Cross1Icon />
-           </Button>
-         </div>
-       )}</div>
+         {options.map((item, index) =>
+           <div className='flex flex-row items-center' key={index}>
+             <Input className='border-r-0' value={item} onChange={(e) => updateOption(index, e.target.value)} />
+             <Button onClick={() => removeOption(index)} className='border-none'>
+               <Cross1Icon />
+             </Button>
+           </div>
+         )}
+       </div>
        }
       </div>
 
