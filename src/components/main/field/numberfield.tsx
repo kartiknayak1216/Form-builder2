@@ -26,10 +26,10 @@ export function NumberProperty() {
   const { updateProperty, store, addStore, removeStore, property, setproperty, removeproperty } = Store();
 
 
-  const [label, setLabel] = useState(property.properties.label || 'Add label');
-  const [text, setText] = useState(property.properties.text || 'Text field');
-  const [helpertext, setHelpertext] = useState(property.properties.helpertext || 'Helper text');
-  const [required, setRequired] = useState(property.properties.required || false);
+  const [label, setLabel] = useState(property?.properties.label || 'Add label');
+  const [text, setText] = useState(property?.properties.text || 'Text field');
+  const [helpertext, setHelpertext] = useState(property?.properties.helpertext || 'Helper text');
+  const [required, setRequired] = useState(property?.properties.required || false);
 
 
   if (!property) {

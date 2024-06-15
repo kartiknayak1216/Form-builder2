@@ -48,7 +48,7 @@ export default function Gridform() {
             ))
           ) : (
             <div>
-              You don't have any forms. Create one!
+              You dont have any forms. Create one!
             </div>
           )
         }

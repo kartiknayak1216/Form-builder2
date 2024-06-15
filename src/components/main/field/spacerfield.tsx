@@ -35,11 +35,7 @@ export function SpacerProperty() {
     return null;
   }
 
-const onsubmit =()=>{
-    if (property?.properties.size !== size) {
-        updateProperty(property?.id, 'size', size);
-      }
-}
+
 
   useEffect(() => {
 
@@ -47,6 +43,12 @@ const onsubmit =()=>{
       updateProperty(property?.id, 'size', size);
     }
   }, [size]);
+
+  const onsubmit =()=>{
+    if (property?.properties.size !== size) {
+        updateProperty(property?.id, 'size', size);
+      }
+}
 
   return (
     <div className="w-full mt-11 flex flex-col gap-7 justify-center">

@@ -38,6 +38,9 @@ if(!property){
   return null
 }
 
+
+
+
 const onsubmit =()=>{
   if  (property?.properties.text !== title) {
     updateProperty(property?.id , 'text', title)
