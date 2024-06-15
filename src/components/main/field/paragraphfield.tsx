@@ -34,14 +34,15 @@ export function ParagraphProperty(){
 
 const [title,settitle] = useState(property?.properties.text || "")
 
-if(!property){
-  return <div/>
-}
 
 
 
 
 const onsubmit =()=>{
+  if (!property) {
+    return null
+  }
+  
   if  (property?.properties.text !== title) {
     updateProperty(property?.id , 'text', title)
 

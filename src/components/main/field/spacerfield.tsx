@@ -38,6 +38,9 @@ export function SpacerProperty() {
 
 
   useEffect(() => {
+    if (!property) {
+      return null
+    }
 
     if (property?.properties.size !== size) {
       updateProperty(property?.id, 'size', size);
