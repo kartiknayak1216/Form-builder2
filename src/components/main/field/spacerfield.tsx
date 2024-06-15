@@ -59,7 +59,7 @@ export function SpacerProperty() {
           max={100}
           step={1}
           className="w-[90%] mt-4"
-          onValueChange={(value) => {setSize(value[0]),onsubmit}}
+          onValueChange={(value) => {setSize(value[0]),onsubmit()}}
         />
       </div>
       
